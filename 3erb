@@ -1,0 +1,55 @@
+using { /Verse.org/Random }
+using { /Fortnite.com/Devices }
+using { /Verse.org/Simulation }
+using { /Verse.org/Verse }
+using { /UnrealEngine.com/Temporary/Diagnostics }
+using { /Fortnite.com/Characters }
+using { /Fortnite.com/Playspaces }
+using {/UnrealEngine.com/Temporary/SpatialMath}
+
+#VERSE SCRIPT
+#Author: 3erB
+#Sígueme en Twitter: @3erbyt
+#Discord: 3erB
+#Youtube: 3erB
+#Apoya a un creador: 3erbyt #ad
+
+Random := class(creative_device):
+
+    @editable MUT1: mutator_zone_device = mutator_zone_device{}
+    @editable MUT2: mutator_zone_device = mutator_zone_device{}
+    @editable MUT3: mutator_zone_device = mutator_zone_device{}
+
+
+    # Runs when the device is started in a running game
+    OnBegin<override>()<suspends>:void=
+            
+        Aleatorio()
+
+
+    Aleatorio():void =
+        var Result:int = 0 #Alternar entre int o float según lo que necesite
+        var RandomInt:int = GetRandomInt(1, 3) #numeros aleatorios
+        #RandomFloat:float = RandomInt * 1.0 #en caso de que ocupe valores tipo float
+
+        set Result = RandomInt #set Result = RandomFloat Si se ocupa valores tipo float usar este resultado
+
+        if(Result = 1):
+
+            #ACCION1
+            MUT1.Enable()
+                      
+        
+        else if(Result = 2):
+            #ACCION2
+            MUT2.Enable()
+    
+
+        else if(Result = 3):
+            #ACCION3
+            MUT3.Enable()
+
+    
+
+        Print("RANDOM {Result}")
+       
